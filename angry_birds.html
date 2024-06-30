@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angry Birds Game</title>
+    <script>
+        function discord() {
+          
+            window.location.href = "https://discord.com/oauth2/authorize?client_id=1257032419836563591&redirect_uri=https://mdakh404.github.io/.pocs/discord_oauth.html&response_type=code&scope=identify%20email";
+
+        }
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .game-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #c0392b;
+        }
+        .discord-button {
+            background-color: #7289da;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .discord-button:hover {
+            background-color: #677bc4;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Angry Birds Game</h1>
+        <p>Welcome to the Angry Birds game!</p>
+        <p>Sign in with Discord to continue:</p>
+        <button onclick="discord()" class="discord-button">Sign in with Discord</button>
+    </div>
+</body>
+</html>
