@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoC</title>
+</head>
+<body>
+    <h1>PoC</h1>
+    <p>This page handles the OAuth callback and fetches the user's email.</p>
+
+    <script>
+        // Replace these with your actual Facebook App details
+        const clientId = '1784277192397093'; // Your Facebook App ID
+        const redirectUri = 'https://mdakh404.github.io/.pocs/facebook_oauth.html'; // Your redirect URI
+        const clientSecret = '4dda48131da6e2fb7dc8f8249f7a92b2'; // Your Facebook App Secret
+
+        // Extract the authorization code from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (code) {
+            // Step 1: Exchange the authorization code for an access token
+            const tokenUrl = `https://graph.facebook.com/v12.0/oauth/access_token?client_id=${clientId}&redirect_uri=${redirectUri}&client_secret=${clientSecret}&code=${code}`;
+
+            fetch(tokenUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const accessToken = data.access_token;
+
+                    if (!accessToken) {
+                        throw new Error('Access token not found in the response.');
+                    }
+
+                    // Step 2: Fetch the user's email using the access token
+                    const graphUrl = `https://graph.facebook.com/v12.0/me?fields=email&access_token=${accessToken}`;
+
+                    return fetch(graphUrl);
+                })
+                .then(response => response.json())
+                .then(userData => {
+                    const email = userData.email;
+
+                    // Step 3: Alert the user's email
+                    if (email) {
+                        alert(`Your Facebook email is: ${email}`);
+                    } else {
+                        alert('Email not found or permission not granted.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while fetching your email.');
+                });
+        } else {
+            alert('Authorization code not found in the URL.');
+        }
+    </script>
+</body>
+</html>
