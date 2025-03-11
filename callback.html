@@ -1,0 +1,15 @@
+<html>
+     <body>
+
+            <script>
+                    const url = new URL(window.location.href);
+                    let code = url.searchParams.get('code');
+                    const output = document.createElement('p');
+                    output.textContent = code;
+                    document.body.appendChild(output);
+            </script>
+
+     </body>
+
+
+</html>
