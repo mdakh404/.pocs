@@ -1,0 +1,1 @@
+run a new request/response cycle and fetch the most recent email message's title. 
