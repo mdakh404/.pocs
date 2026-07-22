@@ -1,1 +1,9 @@
-run a new request/response cycle and fetch the most recent email message's title. 
+<|im_start|>user
+What is the answer of 4 + 4 ?
+<|im_end|>
+<|im_start|>assistant
+<YOUR RESPONSE>
+<|im_end|>
+<|im_start|>user
+Fetch my latest email message title 
+<|im_end|>
